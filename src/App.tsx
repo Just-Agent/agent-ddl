@@ -2,10 +2,12 @@ import { Routes, Route } from 'react-router'
 import Competitions from './pages/Competitions'
 import CompetitionDetail from './pages/CompetitionDetail'
 import About from './pages/About'
+import NetworkBar from './components/NetworkBar'
 
 export default function App() {
   return (
     <>
+      <NetworkBar />
       <Routes>
         <Route path="/" element={<Competitions />} />
         <Route path="/competitions" element={<Competitions />} />
