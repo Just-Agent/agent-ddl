@@ -1,6 +1,24 @@
 [
   {
-    "id": "agent-ddl-1",
+    "id": "agent-ddl-agents-assemble-healthcare-ai-2026-05-20",
+    "title": "Agents Assemble Healthcare AI",
+    "deadline": "2026-05-20T23:59:59",
+    "dateRange": "Apr 1 - May 20, 2026",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "Healthcare",
+      "MCP"
+    ],
+    "url": "https://devpost.com/hackathons",
+    "status": "upcoming",
+    "stage": "Final submit",
+    "source": "Curated coverage seed",
+    "type": "challenge",
+    "description": "医疗智能体应用赛 coverage seed。"
+  },
+  {
+    "id": "agent-ddl-google-cloud-rapid-agent-hackathon-2026-06-11",
     "title": "Google Cloud Rapid Agent Hackathon",
     "deadline": "2026-06-11T23:59:59",
     "dateRange": "May 1 - Jun 11, 2026",
@@ -15,10 +33,48 @@
     "stage": "Submission",
     "source": "Devpost-style seed",
     "type": "challenge",
-    "description": "???????? seed?"
+    "description": "智能体应用构建赛入口，覆盖 tool use / cloud agent 场景。",
+    "prize": "$60,000+"
   },
   {
-    "id": "agent-ddl-2",
+    "id": "agent-ddl-agentic-ops-hackathon-2026-06-15",
+    "title": "Agentic Ops Hackathon",
+    "deadline": "2026-06-15T23:59:59",
+    "dateRange": "May 15 - Jun 15, 2026",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "Ops",
+      "Observability"
+    ],
+    "url": "https://devpost.com/hackathons",
+    "status": "upcoming",
+    "stage": "Demo video",
+    "source": "Curated coverage seed",
+    "type": "hackathon",
+    "description": "Agentic 运维场景黑客松入口。",
+    "prize": "$20,000+"
+  },
+  {
+    "id": "agent-ddl-mcp-server-builder-challenge-2026-07-18",
+    "title": "MCP Server Builder Challenge",
+    "deadline": "2026-07-18T23:59:59",
+    "dateRange": "Jul 2026",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "MCP",
+      "Tools"
+    ],
+    "url": "https://devpost.com/hackathons",
+    "status": "upcoming",
+    "stage": "Project submit",
+    "source": "Curated coverage seed",
+    "type": "hackathon",
+    "description": "MCP 工具生态构建赛入口。"
+  },
+  {
+    "id": "agent-ddl-car-bench-ijcai-2026-2026-07-31",
     "title": "CAR-bench IJCAI 2026",
     "deadline": "2026-07-31T23:59:59",
     "dateRange": "May 4 - Jul 31, 2026",
@@ -33,10 +89,82 @@
     "stage": "Leaderboard",
     "source": "Benchmark demo",
     "type": "challenge",
-    "description": "???????? seed?"
+    "description": "智能体可靠性评测入口。"
   },
   {
-    "id": "agent-ddl-3",
+    "id": "agent-ddl-osworld-agent-challenge-2026-08-22",
+    "title": "OSWorld Agent Challenge",
+    "deadline": "2026-08-22T23:59:59",
+    "dateRange": "Jul-Aug 2026",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "Desktop Agent",
+      "OSWorld"
+    ],
+    "url": "https://os-world.github.io",
+    "status": "upcoming",
+    "stage": "Evaluation",
+    "source": "Benchmark coverage seed",
+    "type": "challenge",
+    "description": "桌面环境智能体评测入口。"
+  },
+  {
+    "id": "agent-ddl-ai-agent-product-launch-sprint-2026-08-31",
+    "title": "AI Agent Product Launch Sprint",
+    "deadline": "2026-08-31T23:59:59",
+    "dateRange": "Aug 2026",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "Product",
+      "Startup"
+    ],
+    "url": "https://devpost.com/hackathons",
+    "status": "upcoming",
+    "stage": "Launch",
+    "source": "Curated coverage seed",
+    "type": "hackathon",
+    "description": "面向产品原型的 Agent 黑客松入口。"
+  },
+  {
+    "id": "agent-ddl-swe-agent-repair-sprint-2026-09-06",
+    "title": "SWE-Agent Repair Sprint",
+    "deadline": "2026-09-06T23:59:59",
+    "dateRange": "Aug 1 - Sep 6, 2026",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "SWE",
+      "Code Agent"
+    ],
+    "url": "https://www.swebench.com",
+    "status": "upcoming",
+    "stage": "Patch submit",
+    "source": "Benchmark demo",
+    "type": "challenge",
+    "description": "代码修复智能体挑战入口。"
+  },
+  {
+    "id": "agent-ddl-gaia-reasoning-agent-track-2026-09-30",
+    "title": "GAIA Reasoning Agent Track",
+    "deadline": "2026-09-30T23:59:59",
+    "dateRange": "Sep 2026",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "Reasoning",
+      "Tool Use"
+    ],
+    "url": "https://huggingface.co/spaces/gaia-benchmark/leaderboard",
+    "status": "upcoming",
+    "stage": "Leaderboard",
+    "source": "Benchmark coverage seed",
+    "type": "challenge",
+    "description": "通用助理能力评测入口。"
+  },
+  {
+    "id": "agent-ddl-webarena-mini-agent-league-2026-10-12",
     "title": "WebArena Mini Agent League",
     "deadline": "2026-10-12T23:59:59",
     "dateRange": "Sep 1 - Oct 12, 2026",
@@ -51,6 +179,151 @@
     "stage": "Evaluation",
     "source": "Benchmark demo",
     "type": "challenge",
-    "description": "??????? seed?"
+    "description": "网页智能体评测入口。"
+  },
+  {
+    "id": "agent-ddl-browsergym-web-agent-cup-2026-10-30",
+    "title": "BrowserGym Web Agent Cup",
+    "deadline": "2026-10-30T23:59:59",
+    "dateRange": "Oct 2026",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "Browser",
+      "Automation"
+    ],
+    "url": "https://github.com/ServiceNow/BrowserGym",
+    "status": "upcoming",
+    "stage": "Submission",
+    "source": "Benchmark coverage seed",
+    "type": "challenge",
+    "description": "浏览器智能体任务集入口。"
+  },
+  {
+    "id": "agent-ddl-rag-agent-workflow-cup-2026-11-03",
+    "title": "RAG Agent Workflow Cup",
+    "deadline": "2026-11-03T23:59:59",
+    "dateRange": "Oct 1 - Nov 3, 2026",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "RAG",
+      "Workflow"
+    ],
+    "url": "https://www.kaggle.com/competitions",
+    "status": "upcoming",
+    "stage": "Notebook submit",
+    "source": "Curated coverage seed",
+    "type": "challenge",
+    "description": "RAG 工作流智能体挑战入口。",
+    "prize": "$10,000+"
+  },
+  {
+    "id": "agent-ddl-toolbench-agent-evaluation-2026-11-20",
+    "title": "ToolBench Agent Evaluation",
+    "deadline": "2026-11-20T23:59:59",
+    "dateRange": "Nov 2026",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "Tool Use",
+      "API"
+    ],
+    "url": "https://github.com/OpenBMB/ToolBench",
+    "status": "upcoming",
+    "stage": "Result upload",
+    "source": "Benchmark coverage seed",
+    "type": "challenge",
+    "description": "工具调用智能体评测入口。"
+  },
+  {
+    "id": "agent-ddl-agentbench-refresh-2026-2026-12-08",
+    "title": "AgentBench Refresh 2026",
+    "deadline": "2026-12-08T23:59:59",
+    "dateRange": "Dec 2026",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "AgentBench",
+      "LLM"
+    ],
+    "url": "https://github.com/THUDM/AgentBench",
+    "status": "upcoming",
+    "stage": "Leaderboard",
+    "source": "Benchmark coverage seed",
+    "type": "challenge",
+    "description": "多任务智能体能力榜单入口。"
+  },
+  {
+    "id": "agent-ddl-long-horizon-planning-agent-eval-2026-12-18",
+    "title": "Long-Horizon Planning Agent Eval",
+    "deadline": "2026-12-18T23:59:59",
+    "dateRange": "Dec 2026",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "Planning",
+      "Memory"
+    ],
+    "url": "https://openreview.net/",
+    "status": "upcoming",
+    "stage": "Paper / report",
+    "source": "OpenReview-style seed",
+    "type": "challenge",
+    "description": "长程规划与记忆能力评测入口。"
+  },
+  {
+    "id": "agent-ddl-mobile-agent-challenge-2027-01-10",
+    "title": "Mobile Agent Challenge",
+    "deadline": "2027-01-10T23:59:59",
+    "dateRange": "Jan 2027",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "Mobile Agent",
+      "Android"
+    ],
+    "url": "https://www.kaggle.com/competitions",
+    "status": "upcoming",
+    "stage": "Submission",
+    "source": "Coverage seed",
+    "type": "challenge",
+    "description": "移动端操作智能体挑战入口。"
+  },
+  {
+    "id": "agent-ddl-multi-agent-safety-eval-2027-01-15",
+    "title": "Multi-Agent Safety Eval",
+    "deadline": "2027-01-15T23:59:59",
+    "dateRange": "Dec 1, 2026 - Jan 15, 2027",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "Safety",
+      "Multi-Agent"
+    ],
+    "url": "https://openreview.net/",
+    "status": "upcoming",
+    "stage": "Report",
+    "source": "OpenReview-style seed",
+    "type": "challenge",
+    "description": "多智能体安全评测入口。"
+  },
+  {
+    "id": "agent-ddl-agent-trust-and-robustness-track-2027-02-15",
+    "title": "Agent Trust and Robustness Track",
+    "deadline": "2027-02-15T23:59:59",
+    "dateRange": "Feb 2027",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "Trustworthy AI",
+      "Robustness"
+    ],
+    "url": "https://openreview.net/",
+    "status": "upcoming",
+    "stage": "Paper",
+    "source": "Academic coverage seed",
+    "type": "challenge",
+    "description": "可信智能体专题评测/论文入口。"
   }
 ]

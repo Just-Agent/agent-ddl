@@ -1,9 +1,37 @@
 [
   {
-    "id": "official-seed",
-    "name": "Official and aggregator seed list",
-    "url": "https://www.competehub.dev/zh",
-    "priority": "seed",
+    "id": "devpost-agent",
+    "name": "Devpost AI Agent Hackathons",
+    "url": "https://devpost.com/hackathons",
+    "priority": "aggregator",
+    "parser": "generic-link-date"
+  },
+  {
+    "id": "openreview-agent",
+    "name": "OpenReview Agent Tracks",
+    "url": "https://openreview.net/",
+    "priority": "academic-review",
+    "parser": "generic-link-date"
+  },
+  {
+    "id": "swebench",
+    "name": "SWE-bench",
+    "url": "https://www.swebench.com",
+    "priority": "benchmark",
+    "parser": "generic-link-date"
+  },
+  {
+    "id": "webarena",
+    "name": "WebArena",
+    "url": "https://webarena.dev",
+    "priority": "benchmark",
+    "parser": "generic-link-date"
+  },
+  {
+    "id": "osworld",
+    "name": "OSWorld",
+    "url": "https://os-world.github.io",
+    "priority": "benchmark",
     "parser": "generic-link-date"
   }
 ]
