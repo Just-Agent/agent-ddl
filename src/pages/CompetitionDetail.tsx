@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from 'react-router';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowLeft,
@@ -31,10 +32,41 @@ import { competitions, getRelatedCompetitions } from '@/data/competitions';
 import type { Competition, CompetitionType, EvaluationMode } from '@/data/competitions';
 import CompetitionCard from '@/components/CompetitionCard';
 
-function getDaysRemaining(deadline: string): number {
-  const now = new Date().getTime();
-  const end = new Date(deadline).getTime();
-  return Math.ceil((end - now) / (1000 * 60 * 60 * 24));
+interface CountdownParts {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  isEnded: boolean;
+}
+
+function getCountdownParts(deadline: string): CountdownParts {
+  const diff = new Date(deadline).getTime() - Date.now();
+  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0, isEnded: true };
+  return {
+    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((diff / (1000 * 60)) % 60),
+    seconds: Math.floor((diff / 1000) % 60),
+    isEnded: false,
+  };
+}
+
+function useLiveCountdown(deadline: string): CountdownParts {
+  const [countdown, setCountdown] = useState(() => getCountdownParts(deadline));
+
+  useEffect(() => {
+    setCountdown(getCountdownParts(deadline));
+    const timer = window.setInterval(() => setCountdown(getCountdownParts(deadline)), 1000);
+    return () => window.clearInterval(timer);
+  }, [deadline]);
+
+  return countdown;
+}
+
+function formatCountdown(countdown: CountdownParts): string {
+  if (countdown.isEnded) return 'Ended';
+  return `${countdown.days}d ${String(countdown.hours).padStart(2, '0')}h ${String(countdown.minutes).padStart(2, '0')}m ${String(countdown.seconds).padStart(2, '0')}s`;
 }
 
 function formatDate(dateStr: string): string {
@@ -124,7 +156,7 @@ export default function CompetitionDetail() {
     );
   }
 
-  const days = getDaysRemaining(competition.deadline);
+  const countdown = useLiveCountdown(competition.deadline);
   const typeInfo = typeConfig[competition.type];
   const evalInfo = evalConfig[competition.evaluationMode];
   const TypeIcon = typeInfo.icon;
@@ -297,8 +329,8 @@ export default function CompetitionDetail() {
                 <Clock className="w-4 h-4 text-[#64748B]" />
                 <span className="text-[11px] font-medium uppercase tracking-[0.06em] text-[#64748B]">Days Left</span>
               </div>
-              <span className={`font-mono text-[12px] font-medium tracking-[0.04em] ${days < 0 ? 'text-[#64748B]' : days < 7 ? 'text-[#FBBF24]' : 'text-[#34D399]'}`}>
-                {days < 0 ? 'Ended' : `${days} days`}
+              <span className={`font-mono text-[12px] font-medium tracking-[0.04em] ${countdown.isEnded ? 'text-[#64748B]' : countdown.days < 7 ? 'text-[#FBBF24]' : 'text-[#34D399]'}`}>
+                {formatCountdown(countdown)}
               </span>
             </div>
           </motion.div>

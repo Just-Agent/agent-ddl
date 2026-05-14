@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { motion } from 'framer-motion';
 import { Trophy, Monitor, GraduationCap, DollarSign, Calendar, ArrowRight } from 'lucide-react';
@@ -10,24 +10,47 @@ interface CompetitionCardProps {
   compact?: boolean;
 }
 
-function getDaysRemaining(deadline: string): number {
-  const now = new Date().getTime();
-  const end = new Date(deadline).getTime();
-  return Math.ceil((end - now) / (1000 * 60 * 60 * 24));
+interface CountdownParts {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  isEnded: boolean;
 }
 
-function getUrgencyColor(days: number): string {
-  if (days < 3) return 'text-[#FBBF24]';
-  if (days < 7) return 'text-[#FBBF24]';
-  if (days > 7) return 'text-[#94A3B8]';
-  return 'text-[#94A3B8]';
+function getCountdownParts(deadline: string): CountdownParts {
+  const diff = new Date(deadline).getTime() - Date.now();
+  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0, isEnded: true };
+  return {
+    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((diff / (1000 * 60)) % 60),
+    seconds: Math.floor((diff / 1000) % 60),
+    isEnded: false,
+  };
 }
 
-function formatCountdown(days: number): string {
-  if (days < 0) return 'Ended';
-  if (days === 0) return 'Due today';
-  if (days === 1) return '1 day left';
-  return `${days} days left`;
+function useLiveCountdown(deadline: string): CountdownParts {
+  const [countdown, setCountdown] = useState(() => getCountdownParts(deadline));
+
+  useEffect(() => {
+    setCountdown(getCountdownParts(deadline));
+    const timer = window.setInterval(() => setCountdown(getCountdownParts(deadline)), 1000);
+    return () => window.clearInterval(timer);
+  }, [deadline]);
+
+  return countdown;
+}
+
+function getUrgencyColor(countdown: CountdownParts): string {
+  if (countdown.isEnded) return 'text-[#64748B]';
+  if (countdown.days < 7) return 'text-[#FBBF24]';
+  return 'text-[#34D399]';
+}
+
+function formatCountdown(countdown: CountdownParts): string {
+  if (countdown.isEnded) return 'Ended';
+  return `${countdown.days}d ${String(countdown.hours).padStart(2, '0')}h ${String(countdown.minutes).padStart(2, '0')}m ${String(countdown.seconds).padStart(2, '0')}s`;
 }
 
 const typeConfig = {
@@ -62,8 +85,8 @@ const evalConfig = {
 
 export default function CompetitionCard({ competition, index = 0, compact = false }: CompetitionCardProps) {
   const navigate = useNavigate();
-  const days = getDaysRemaining(competition.deadline);
-  const urgencyClass = getUrgencyColor(days);
+  const countdown = useLiveCountdown(competition.deadline);
+  const urgencyClass = getUrgencyColor(countdown);
   const typeInfo = typeConfig[competition.type];
   const evalInfo = evalConfig[competition.evaluationMode];
   const TypeIcon = typeInfo.icon;
@@ -86,8 +109,8 @@ export default function CompetitionCard({ competition, index = 0, compact = fals
             <TypeIcon className="w-3.5 h-3.5" />
             {typeInfo.label}
           </span>
-          <span className={`font-mono text-[12px] font-medium tracking-[0.04em] ${days < 3 ? 'text-[#FBBF24]' : days < 7 ? 'text-[#FBBF24]' : 'text-[#94A3B8]'}`}>
-            {formatCountdown(days)}
+          <span className={`font-mono text-[12px] font-medium tracking-[0.04em] ${urgencyClass}`}>
+            {formatCountdown(countdown)}
           </span>
         </div>
         <h3 className="font-[Space_Grotesk] font-semibold text-[16px] leading-[1.3] tracking-[-0.01em] text-[#E2E8F0] mb-2 line-clamp-2">
@@ -119,7 +142,7 @@ export default function CompetitionCard({ competition, index = 0, compact = fals
         </span>
         <span className={`font-mono text-[13px] font-medium tracking-[0.02em] ${urgencyClass}`}>
           <Calendar className="w-3.5 h-3.5 inline mr-1" />
-          {formatCountdown(days)}
+          {formatCountdown(countdown)}
         </span>
       </div>
 
@@ -171,7 +194,7 @@ export default function CompetitionCard({ competition, index = 0, compact = fals
       {/* Footer: countdown + view details */}
       <div className="mt-auto flex items-center justify-between pt-4 border-t border-[rgba(255,255,255,0.06)]">
         <span className="font-mono text-[12px] font-medium tracking-[0.04em] text-[#E2E8F0] border border-[#00E5FF] rounded px-2.5 py-1">
-          {days < 0 ? 'ENDED' : `${days}d remaining`}
+          {countdown.isEnded ? 'ENDED' : formatCountdown(countdown)}
         </span>
         <span className="text-[13px] text-[#00E5FF] font-medium flex items-center gap-1 group-hover:underline">
           View Details <ArrowRight className="w-3.5 h-3.5" />
