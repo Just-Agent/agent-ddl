@@ -1,0 +1,56 @@
+[
+  {
+    "id": "agent-ddl-1",
+    "title": "Google Cloud Rapid Agent Hackathon",
+    "deadline": "2026-06-11T23:59:59",
+    "dateRange": "May 1 - Jun 11, 2026",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "AI Agents",
+      "Cloud"
+    ],
+    "url": "https://devpost.com/hackathons",
+    "status": "upcoming",
+    "stage": "Submission",
+    "source": "Devpost-style seed",
+    "type": "challenge",
+    "description": "???????? seed?"
+  },
+  {
+    "id": "agent-ddl-2",
+    "title": "CAR-bench IJCAI 2026",
+    "deadline": "2026-07-31T23:59:59",
+    "dateRange": "May 4 - Jul 31, 2026",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "Benchmark",
+      "Automotive"
+    ],
+    "url": "https://www.ijcai.org",
+    "status": "upcoming",
+    "stage": "Leaderboard",
+    "source": "Benchmark demo",
+    "type": "challenge",
+    "description": "???????? seed?"
+  },
+  {
+    "id": "agent-ddl-3",
+    "title": "WebArena Mini Agent League",
+    "deadline": "2026-10-12T23:59:59",
+    "dateRange": "Sep 1 - Oct 12, 2026",
+    "location": "Online",
+    "isOnline": true,
+    "tags": [
+      "Web Agent",
+      "Browser"
+    ],
+    "url": "https://webarena.dev",
+    "status": "upcoming",
+    "stage": "Evaluation",
+    "source": "Benchmark demo",
+    "type": "challenge",
+    "description": "??????? seed?"
+  }
+]
